@@ -1,0 +1,60 @@
+<div class="container">
+          <div class="d-flex-center">
+            <button class="btn btn-outline-light" (click)="router.navigate(['/add'])">Add New Student</button>
+          </div>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+        
+          <div class="container mt-4">
+            <h2>Student List</h2>
+            <div class="search-bar mb-3">
+              <input
+                class="form-control"
+                placeholder="Search by Name or ID"
+                [(ngModel)]="searchTerm"
+                (input)="searchStudents()"
+              />
+            </div>
+        
+            <div *ngIf="filteredStudents.length > 0; else noStudents">
+              <div class="row">
+                <div class="col-md-4" *ngFor="let student of filteredStudents">
+                  <div class="card mb-3">
+                    <img
+                      [src]="student.image"
+                      alt="Student Photo"
+                      class="card-img-top"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">{{ student.name }}</h5>
+                      <div class="details-section">
+                        <p><strong>Student ID:</strong> {{ student.studentId }}</p>
+                        <p><strong>Department:</strong> {{ student.department }}</p>
+                        <p><strong>Email:</strong> {{ student.email }}</p>
+                        <p><strong>Phone:</strong> {{ student.phone }}</p>
+                        <p><strong>Favourite Subjects:</strong> {{ student.favoriteSubjects }}</p>
+                      </div>
+                      <div class="d-flex-buttons">
+                        <button
+                          class="btn btn-warning"
+                          (click)="editStudent(student._id)"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          class="btn btn-danger"
+                          (click)="deleteStudent(student._id)"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #noStudents>
+              <p>No students available. Please add a student or adjust your search.</p>
+            </ng-template>
+          </div>
+        </div>
+ 

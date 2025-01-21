@@ -1,0 +1,92 @@
+/* You can add global styles to this file, and also import other style files */
+/* Global Colors and Variables */
+:root {
+    --primary-color: #6a0dad;
+    --secondary-color: #ffffff;
+    --accent-color: #d3d3d3;
+    --text-color: #333333;
+    --footer-bg: #4b0082;
+  }
+  
+  /* Global Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+    color: var(--text-color);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  /* Header */
+  .navbar {
+    background-color: var(--primary-color);
+  }
+  
+  .navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar .btn {
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+  }
+  
+  .navbar .btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+  }
+  
+  /* Footer 
+  .footer {
+    background-color: var(--footer-bg);
+    padding: 1rem 0;
+    color: var(--secondary-color);
+  }
+  
+  /* Cards */
+  .card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Buttons */
+  .btn {
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+  }
+  
+
+  @media (max-width: 768px) {
+    .navbar .btn {
+      display: block;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .card {
+      margin-bottom: 1.5rem;
+    }
+  
+    .container {
+      padding: 1rem;
+    }
+  }
+  

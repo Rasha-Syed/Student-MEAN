@@ -1,0 +1,118 @@
+<div class="container mt-4">
+  <h2>{{ studentId ? 'Edit' : 'Add' }} Student</h2>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <!-- Student ID Field -->
+    <div class="mb-3">
+      <label for="studentId" class="form-label">Student ID</label>
+      <input
+        id="studentId"
+        formControlName="studentId"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': studentForm.controls.studentId?.invalid && studentForm.controls.studentId?.touched
+        }"
+        [readonly]="studentId !== null"
+        [disabled]="studentId !== null"
+        placeholder="Enter Student ID"
+      />
+      <div *ngIf="studentForm.controls.studentId?.invalid && studentForm.controls.studentId?.touched" class="invalid-feedback">
+        <strong>Student ID</strong> is required for adding a new student.
+      </div>
+    </div>
+
+    <!-- Name Field -->
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        id="name"
+        formControlName="name"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': studentForm.controls.name?.invalid && studentForm.controls.name?.touched
+        }"
+        placeholder="Enter Full Name"
+      />
+      <div *ngIf="studentForm.controls.name?.invalid && studentForm.controls.name?.touched" class="invalid-feedback">
+        <strong>Name</strong> is required and must be at least 3 characters.
+      </div>
+    </div>
+
+    <!-- Phone Number Field -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input
+        id="phone"
+        formControlName="phone"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': studentForm.controls.phone?.invalid && studentForm.controls.phone?.touched
+        }"
+        placeholder="Enter 10-digit Phone Number"
+      />
+      <div *ngIf="studentForm.controls.phone?.invalid && studentForm.controls.phone?.touched" class="invalid-feedback">
+        Please enter a <strong>valid 10-digit phone number</strong>.
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': studentForm.controls.email?.invalid && studentForm.controls.email?.touched
+        }"
+        placeholder="Enter a valid email"
+      />
+      <div *ngIf="studentForm.controls.email?.invalid && studentForm.controls.email?.touched" class="invalid-feedback">
+        Please enter a <strong>valid email address</strong>.
+      </div>
+    </div>
+
+    <!-- Department Field -->
+    <div class="mb-3">
+      <label for="department" class="form-label">Department</label>
+      <input
+        id="department"
+        formControlName="department"
+        class="form-control"
+        placeholder="Enter Department Name"
+      />
+    </div>
+
+    <!-- Favorite Subjects -->
+    <div class="mb-3">
+      <label class="form-label">Favorite Subjects</label>
+      <div *ngFor="let subject of availableSubjects">
+        <input
+          type="checkbox"
+          [id]="subject"
+          (change)="onSubjectChange(subject, $event)"
+          [checked]="studentForm.get('favoriteSubjects').value.includes(subject)"
+        />
+        <label [for]="subject">{{ subject }}</label>
+      </div>
+    </div>
+
+    <!-- Image URL Field -->
+<div class="mb-3">
+  <label for="image" class="form-label">Image URL</label>
+  <input
+    id="image"
+    type="text"
+    formControlName="image"
+    class="form-control"
+    placeholder="Enter Image URL"
+  />
+</div>
+
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">
+      {{ studentId ? 'Update' : 'Add' }} Student
+    </button>
+  </form>
+</div>
