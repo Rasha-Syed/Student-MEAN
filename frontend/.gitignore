@@ -1,42 +1,43 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+node_modules/
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Build directories (for Angular, React, etc.)
+/dist/
+/build/
+/out-tsc/
 
-# Node
-/node_modules
+# Coverage reports
+/coverage/
+
+# Environment variables (add this if you're using .env files for sensitive data)
+.env
+
+# Log files
+*.log
+
+# Optional: npm package lock (not recommended to ignore)
+# package-lock.json
+
+# Yarn lock (if using Yarn, otherwise you can ignore this)
+/yarn.lock
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+
+# Operating system specific files
+.DS_Store
+Thumbs.db
+
+# npm error log
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
+# SASS/SCSS compilation output (if applicable)
+*.css
+*.scssc
+
+# JetBrains IDEs
 .idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
-.DS_Store
-Thumbs.db
+# Other possible temporary files
+*.tmp
